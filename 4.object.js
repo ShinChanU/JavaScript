@@ -25,6 +25,7 @@ delete chan.hasJob;
 console.log(chan.hasJob);
 
 // 2. Computed properties []
+console.clear();
 console.log(chan.name);  // dot . 가능
 console.log(chan['name']); // [], string type 대괄호도 가능(computed property)
 chan['hasJob'] = true;
@@ -41,9 +42,9 @@ const person1 = { name: 'bob', age: 2 };
 const person2 = { name: 'steve', age: 3 };
 const person3 = { name: 'dava', age: 4 };
 const person4 = new Person('chan', 30);
-console.log(person4);
+console.log(person1);
 
-// 4. Constuctor
+// 4. Constructor
 function Person(name, age) {
   this.name = name;
   this.age = age;
@@ -70,6 +71,7 @@ for (let value of array) {
 
 // 7. Fun cloning
 // Object.assign(dest, [ob1, obj2, obj3...])
+console.clear();
 const user = { name: 'chan', age: '20' };
 const user2 = user;
 user2.name = 'coder';

@@ -13,6 +13,7 @@ log('Hello@');
 log(1234);
 
 // 2. parameters
+console.clear();
 function changeName(obj) {
   obj.name = 'coder';
 }
@@ -28,7 +29,8 @@ function showMessage(message, from = 'unknown') {
 showMessage('Hi', 'chan');
 showMessage('Hi');
 
-// 4. Rest parameters (added in ES6)  
+// // 4. Rest parameters (added in ES6)  
+console.clear();
 function printAll(...args) {
   for (let i = 0; i < args.length; i++) {
     console.log(args[i]);
@@ -41,7 +43,6 @@ function printAll(...args) {
   args.forEach((arg) => console.log(arg));
 }
 printAll('Shin', 'Chan', 'Woo');
-console.clear();
 
 // 5. Local scope
 let globalMessage = 'global';
@@ -91,6 +92,7 @@ const sumAgain = sum;
 console.log(sumAgain(1, 3));
 
 // 2. callback function using function expression
+console.clear();
 function randomQuiz(answer, printYes, printNo) {
   if (answer === 'love you') {
     printYes();
@@ -106,7 +108,7 @@ const printYes = function () {
 const printNo = function print() {
   console.log('no!');
 };
-randomQuiz('wrong', printYes, printNo);
+randomQuiz('wrong', printYes, printNo); // 함수를 넘겨주는 구조(콜백)
 randomQuiz('love you', printYes, printNo);
 
 const simplePrint = () => console.log('simplePrint!');
@@ -127,42 +129,42 @@ hello();
   console.log('IIFE');
 })();
 
-// function calculate(command, a, b) {
-//   if (command == 'add') {
-//     return a + b;
-//   } else if (command == 'substract') {
-//     return a - b;
-//   } else if (command == 'divide') {
-//     return a / b;
-//   } else if (command == 'multiply') {
-//     return a * b;
-//   } else if (command == 'remainder') {
-//     return a % b;
-//   } else {
-//     return;
-//   }
-// }
+function calculate(command, a, b) {
+  if (command == 'add') {
+    return a + b;
+  } else if (command == 'subtract') {
+    return a - b;
+  } else if (command == 'divide') {
+    return a / b;
+  } else if (command == 'multiply') {
+    return a * b;
+  } else if (command == 'remainder') {
+    return a % b;
+  } else {
+    return;
+  }
+}
 
-// function calculate2(command, a, b) {
-//   switch (command) {
-//     case 'add':
-//       console.log(a + b);
-//       break;
-//     case 'substract':
-//       console.log(a - b);
-//       break;
-//     case 'divide':
-//       console.log(a / b);
-//       break;
-//     case 'multiply':
-//       console.log(a * b);
-//       break;
-//     case 'remainder':
-//       console.log(a % b);
-//       break;
-//     default:
-//       throw Error('No!');
-//   }
-// }
+function calculate2(command, a, b) {
+  switch (command) {
+    case 'add':
+      console.log(a + b);
+      break;
+    case 'substract':
+      console.log(a - b);
+      break;
+    case 'divide':
+      console.log(a / b);
+      break;
+    case 'multiply':
+      console.log(a * b);
+      break;
+    case 'remainder':
+      console.log(a % b);
+      break;
+    default:
+      throw Error('No!');
+  }
+}
 
-// calculate2('sdf', 5, 5);
+calculate2('sdf', 5, 5);

@@ -5,7 +5,8 @@ console.log(`string literals: 1 + 2 = ${1 + 2}`);
 
 console.log('ellie\'s book\n\t') // \ (백 슬러쉬) 사용
 
-// 2. Numeric opertors
+// 2. Numeric operators
+console.clear();
 console.log(1 + 1); // add
 console.log(1 - 1); // substract
 console.log(1 / 1); // divide
@@ -14,6 +15,7 @@ console.log(5 % 2); // remainder(나머지)
 console.log(2 ** 3); // exponentiation(제곱)
 
 // 3. Increment and decrement operators
+console.clear();
 let counter = 2;
 const preIncrement = ++counter;
 // counter = counter + 1;
@@ -25,6 +27,7 @@ const postIncrement = counter++;
 console.log(`preIncrement: ${postIncrement}, counter: ${counter}`);
 
 // 4. Assignment operator(할당 연산자)
+console.clear();
 let x = 3;
 let y = 6;
 x += y; // x = x + y
@@ -42,15 +45,6 @@ console.log(10 >= 6); // greater than or equal
 const value1 = false; //true 경우 바로 연산 종료하기 때문에 check()함수 호출 x, 즉 시간이 오래걸리는 연산일수록 뒤에 작성이 바람직함
 const value2 = 4 < 2;
 
-// || (or), finds the first truthy value
-console .log(`or: ${value1 || value2 || check()}`);
-
-// && (and), finds the first falsy value
-console.log(`and: ${value1 && value2 && check()}`);
-
-//often used to compress long if-statement
-//nullableObject && nullableObject.something
-
 function check() {
   for (let i = 0; i < 10; i++) {
     //wasting time
@@ -59,7 +53,19 @@ function check() {
   return true;
 }
 
+// || (or), finds the first truthy value
+console.clear();
+console.log(`or: ${value1 || value2 || check()}`);
+
+// && (and), finds the first falsy value
+console.log(`and: ${value1 && value2 && check()}`);
+
+//often used to compress long if-statement
+//nullableObject && nullableObject.something
+
+
 // ! (not)
+console.clear();
 console.log(!value1);
 
 // 7. Equality
@@ -67,22 +73,24 @@ const stringFive = '5';
 const numberFive = 5;
 
 // == loose equality, with type conversion
-console.log(stringFive ==  numberFive); // true, type 관계 x
-console.log(stringFive !=  numberFive);
+console.log(stringFive == numberFive); // true, type 관계 x
+console.log(stringFive != numberFive);
 
 // === strict equality, no type conversion
-console.log(stringFive ===  numberFive); // false, type도 일치해야함
-console.log(stringFive !=  numberFive);
+console.log(stringFive === numberFive); // false, type도 일치해야함
+console.log(stringFive != numberFive);
 
 // object equality by referance
-const chan1 = { name : 'chan'};
-const chan2 = { name : 'chan'};
-const chan3 = chan1;
-console.log(chan1 == chan2); // 값이 같더라도 다른 오브젝트(다른 referance)
+console.clear();
+const chan1 = { name: 'chan' };
+const chan2 = { name: 'chan' };
+const chan3 = chan1; // 깊은 복사
+console.log(chan1 == chan2); // 값이 같더라도 다른 오브젝트(다른 reference)
 console.log(chan1 === chan2); // loose, strict 둘 다 false
-console.log(chan1 === chan3); // 같은 memory referance 지정
+console.log(chan1 === chan3); // 같은 memory reference 지정
 
 // equality - puzzler, 0 null undefined emptystring => false
+console.clear();
 console.log(0 == false);  //  true 
 console.log(0 === false); //  false (type)
 console.log('' == false); //  true 
@@ -91,7 +99,8 @@ console.log(null == undefined); // true
 console.log(null === undefined);  // false 
 
 // 8. conditional operators: if
-// if, else if, esle
+// if, else if, else
+console.clear();
 const name = 'chan';
 if (name === 'chan') {
   console.log('Welcome, Chan!');
@@ -103,13 +112,14 @@ if (name === 'chan') {
 
 // 9. Ternary operator: ?
 // condition ? value1 : value2;
+console.clear();
 console.log(name === 'chan' ? 'yes' : 'no'); // 조건문 ok => 앞, 아니면 뒤
 
 // 10. Switch statement
 // use for multiple if checks
 // use for enum-like value check
 // use for multiple type checks in TS
-const browser ="IE";  // else if 많이 사용시 사용하면 좋음
+const browser = "Chrome";  // else if 많이 사용시 사용하면 좋음
 switch (browser) {
   case 'IE':
     console.log('go away!');
@@ -126,8 +136,9 @@ switch (browser) {
 // 11. Loops
 // while loop, while the condition is truly,
 // body code is executed.
+console.clear();
 let i = 3;
-while(i > 0) {
+while (i > 0) {
   console.log(`while: ${i}`); // 3 2 1 0(종료)
   i--;
 }
@@ -137,7 +148,7 @@ while(i > 0) {
 do {
   console.log(`do while: ${i}`); // i 가 0이지만 do 를 실행함
   i--;
-} while(i > 0); // do 를 실행하고 while을 실행함
+} while (i > 0); // do 를 실행하고 while을 실행함
 
 // for loop, for(begin; condition; step)
 for (i = 3; i > 0; i--) {
@@ -158,19 +169,19 @@ for (let i = 0; i < 11; i++) {
 
 // break, continue
 // Q1. iterate from 0 to 10 and print only even numbers (use continue)
-for(i = 0; i < 10; i++) {
-  if (i == 0) { 
+for (i = 0; i < 10; i++) {
+  if (i == 0) {
     continue;
   }
-  else if ( i % 2 == 0) {
+  else if (i % 2 == 0) {
     console.log(`even: ${i}`);
   }
 }
 
 // Q2. iterate from 0 to 10 and print numbers until reaching 8 (use break)
-for(let i = 0; i < 10; i++)  {
+for (let i = 0; i < 10; i++) {
   console.log(`number: ${i}`);
-  if(i == 8) { 
+  if (i == 8) {
     break;
   }
 }
