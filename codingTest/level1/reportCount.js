@@ -14,15 +14,15 @@ const solution = (id_list, report, k) => {
     let a = [];
 
     // report  배열에서 중복된 값은 하나로 쳐야함
-    
+
     for (let i = 0; i < report.length; i++) {
         let temp = report[i]; // string
         let temp2 = temp.split(" "); // array
         repoter.push(temp2[0]);
         danger.push(temp2[1]);
-    } 
+    }
     console.log(repoter, danger);
-    
+
     for (let i = 0; i < id_list.length; i++) {
         let temp = danger.filter(e => e === id_list[i]);
         if (temp.length >= k) {
@@ -36,7 +36,7 @@ const solution = (id_list, report, k) => {
     for (let i = 0; i < stopId.length; i++) {
         for (let j = 0; j < danger.length; j++) {
             if (stopId[i] === danger[j]) {
-                count[j] = id_list.filter(e => e === repoter[j]);            
+                count[j] = id_list.filter(e => e === repoter[j]);
                 console.log(count);
             }
         }
@@ -63,4 +63,3 @@ const result = solution(idList, reportList, k);
 // 01 25 하는 중.. so hard..
 // 참고 하셈..
 // https://velog.io/@dnjsdud2257/%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%8B%A0%EA%B3%A0-%EA%B2%B0%EA%B3%BC-%EB%B0%9B%EA%B8%B0-JavaScript
-//  test
