@@ -21,5 +21,7 @@ console.log(solution([5, 0, 2, 7]));
 
 // 3 5 6 3, 4 5 2, 7 4, 5
 // 중복 제거, 오름차순
-// 2 3 4 5 6 7 
+// 2 3 4 5 6 7
+
+// reduce, map, concat, every, some, forEach, includes, join, slice, 정리
 
