@@ -16,3 +16,5 @@ const solution = (s) => {
 };
 
 console.log(solution("qwer"));
+
+// done
