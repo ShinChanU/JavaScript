@@ -3,12 +3,6 @@ const solution = (x) => {
   let temp = x;
   let result = x;
 
-  // console.log(x+"".split(""));
-  // console.log(typeof(x+"")); // string
-  // console.log(typeof(x)); // number
-  // console.log(x.split(""));
-  // xsplit()
-
   while(temp > 0) {
     arr.push(x%10);
     x = (x - x%10) / 10;
