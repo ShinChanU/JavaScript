@@ -17,3 +17,5 @@ const solution = (num) => {
 };
 
 console.log(solution(6));
+
+// 0214 done;
