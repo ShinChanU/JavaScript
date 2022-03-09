@@ -1,5 +1,4 @@
-const solution = (a, b, c, d, e, f, g) => {
-  const arr = [a, b, c, d, e, f, g];
+const solution = (arr) => {
   const result = [];
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -11,6 +10,6 @@ const solution = (a, b, c, d, e, f, g) => {
   return [sum, Math.min(...result)];
 };
 
-console.log(solution(12, 77, 38, 41, 53, 92, 85));
+console.log(solution([12, 77, 38, 41, 53, 92, 85]));
 
 // 220308
