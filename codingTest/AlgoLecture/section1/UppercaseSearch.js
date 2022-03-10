@@ -5,7 +5,8 @@
 const solution = (str) => {
   let count = 0;
   [...str].map((v) => {
-    if (v.charCodeAt() >= 65 && v.charCodeAt() <= 90) count++;
+    // if (v.charCodeAt() >= 65 && v.charCodeAt() <= 90) count++;
+    if (v === v.toUpperCase()) count++; // 강의 보고 수정
   });
   return count;
 };

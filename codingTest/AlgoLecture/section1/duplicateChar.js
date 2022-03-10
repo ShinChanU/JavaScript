@@ -7,3 +7,6 @@ const solution = (str) => {
 };
 
 console.log(solution("ksekkset"));
+
+// 0310
+// indexOf("char", idx) : idx이후에서 탐색

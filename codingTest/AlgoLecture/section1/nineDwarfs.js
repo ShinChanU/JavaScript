@@ -1,7 +1,7 @@
 const solution = (arr) => {
   const hap = arr.reduce((a, b) => a + b);
   const remain = hap - 100;
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length - 1; i++) {
     for (let j = i + 1; j < arr.length; j++) {
       if (arr[j] === remain - arr[i]) {
         arr.splice(j, 1);

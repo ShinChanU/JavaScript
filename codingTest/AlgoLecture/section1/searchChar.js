@@ -14,3 +14,5 @@ const solution = (str, char) => {
 // };
 
 console.log(solution("COMPUTERPROGRAMMING", "R"));
+
+// 0309
