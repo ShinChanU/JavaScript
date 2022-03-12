@@ -12,3 +12,5 @@ const solution = (n, arr) => {
 
 console.log(solution(8, [130, 135, 148, 140, 145, 150, 150, 153]));
 console.log(solution(8, [130, 125, 141, 149, 143, 150, 155, 111]));
+
+// 0311
