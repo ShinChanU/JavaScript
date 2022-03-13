@@ -15,3 +15,11 @@ const solution = (a) => {
 console.log(solution([87, 89, 92, 100, 76]));
 
 // 0312
+
+const solution2 = (a) => {
+  let n = a.length;
+  return Array.from({ length: n }, () => 1);
+  // return Array(n).fill(1);
+};
+
+console.log(solution2([87, 89, 92, 100, 76]));
