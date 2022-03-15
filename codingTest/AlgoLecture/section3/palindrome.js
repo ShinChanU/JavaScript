@@ -21,3 +21,13 @@ const solution = (str) => {
 console.log(solution("found7,time;study;Ydutsemit,7Dnuof"));
 
 // 0314
+
+const solution2 = (str) => {
+  str = str.toUpperCase().replace(/[^A-Z]/g, "");
+  if (str.split("").reverse().join() !== str) return "No";
+  return "YES";
+};
+
+console.log(solution2("found7,time;study;Ydutsemit,7Dnuof"));
+
+// 0315 정규식 사용
