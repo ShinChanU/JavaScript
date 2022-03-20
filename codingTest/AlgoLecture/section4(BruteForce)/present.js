@@ -1,52 +1,44 @@
 const solution = (budget, arr) => {
-  let answer = 0;
-  let total = [];
-  let temp = []; // [[합, 할인합], ]
+  // 모든 경우를 탐색해야함
+  let result = [];
+  let cnt = 0;
 
-  arr.map((e) => {
-    temp.push(e[0] + e[1]);
-    temp.push(e[0] / 2 + e[1]);
-    total.push(temp);
-    temp = [];
+  const hapSort = arr.sort((a, b) => {
+    return a[0] + a[1] - (b[0] + b[1]);
   });
 
-  while (budget > 0) {
-    let min = Number.MAX_SAFE_INTEGER;
-    let index = Number.MAX_SAFE_INTEGER;
+  for (let i = 0; i < hapSort.length; i++) {
+    cnt = 0;
+    let tmp = budget;
+    let disCnt = hapSort[i][0] / 2 + hapSort[i][1];
 
-    for (let i = 0; i < total.length; i++) {
-      if (min > total[i][1]) {
-        index = i;
-        min = total[i][1];
-        // realHap = total[i][0];
-      }
-    }
-
-    if (budget - total[index][0] < 0) {
-      for (let j = 0; j < total.length; j++) {
-        if (budget - total[j][1] >= 0) {
-          budget -= total[j][1];
-          total.splice(j, 1);
-          answer++;
-          break;
+    if (tmp - disCnt >= 0) {
+      tmp -= disCnt;
+      cnt++;
+      for (let j = 0; j < hapSort.length; j++) {
+        if (i === j) continue;
+        let val = hapSort[j][0] + hapSort[j][1];
+        if (tmp - val >= 0) {
+          tmp -= val;
+          cnt++;
         }
       }
-    } else {
-      budget -= total[index][0];
-      total.splice(index, 1);
-      answer++;
     }
+
+    result.push(cnt);
   }
 
-  return answer;
+  return Math.max(...result);
 };
 
-const a = [6, 6];
-const b = [2, 2];
-const c = [4, 3];
-const d = [4, 5];
-const e = [10, 3];
+console.log(
+  solution(41, [
+    [8, 6],
+    [2, 2],
+    [4, 3],
+    [4, 5],
+    [12, 1],
+  ])
+);
 
-console.log(solution(28, [a, b, c, d, e]));
-
-// 0318 done
+// 0320 강의 보고 수정

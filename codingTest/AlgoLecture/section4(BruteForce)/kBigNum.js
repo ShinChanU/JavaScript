@@ -1,17 +1,16 @@
 const solution = (k, arr) => {
-  let result = [];
+  let tmp = new Set();
 
   for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      for (let k = 0; k < arr.length; k++) {
-        if (j === i || j === k || i === k) continue;
-        else result.push(arr[i] + arr[j] + arr[k]);
+    for (let j = i + 1; j < arr.length; j++) {
+      for (let k = j + 1; k < arr.length; k++) {
+        tmp.add(arr[i] + arr[j] + arr[k]);
       }
     }
   }
 
-  const answer = [...new Set(result)].sort((a, b) => a - b).reverse();
-
+  console.log(tmp);
+  let answer = [...tmp].sort((a, b) => b - a); //  내림차순 정렬
   return answer[k - 1];
 };
 
