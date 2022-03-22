@@ -1,4 +1,5 @@
 const solution = (a, b) => {
+  // O(n+n)
   let answer = [];
   a.sort((a, b) => a - b);
   b.sort((a, b) => a - b);

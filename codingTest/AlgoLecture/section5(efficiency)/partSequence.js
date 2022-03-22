@@ -9,7 +9,6 @@ const solution = (m, arr) => {
     p2 = p1;
     while (p2 < n) {
       tmp += arr[p2];
-      console.log(arr[p1], arr[p2], tmp);
       if (tmp === m) {
         // 일치하는 경우의 수
         answer++;
@@ -27,5 +26,29 @@ const solution = (m, arr) => {
 };
 
 console.log(solution(6, [1, 2, 1, 3, 1, 1, 1, 2]));
+
+// 0321 done.
+
+const solution2 = (m, arr) => {
+  let answer = 0;
+  let lt = (rt = 0);
+  let n = arr.length;
+  let sum = 0;
+
+  while (rt < n) {
+    if (sum < m) sum += arr[rt++];
+    else if (sum > m) {
+      sum -= arr[lt++];
+    }
+    if (sum === m) {
+      answer++;
+      sum -= arr[lt++];
+    }
+  }
+
+  return answer;
+};
+
+console.log(solution2(6, [1, 2, 1, 3, 1, 1, 1, 2]));
 
 // 0321 done.
