@@ -51,4 +51,4 @@ const solution2 = (m, arr) => {
 
 console.log(solution2(6, [1, 2, 1, 3, 1, 1, 1, 2]));
 
-// 0321 done.
+// 0322 강의 수강 중
