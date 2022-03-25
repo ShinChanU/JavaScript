@@ -31,18 +31,15 @@ console.log(solution(6, [1, 2, 1, 3, 1, 1, 1, 2]));
 
 const solution2 = (m, arr) => {
   let answer = 0;
-  let lt = (rt = 0);
-  let n = arr.length;
+  let lt = 0;
   let sum = 0;
 
-  while (rt < n) {
-    if (sum < m) sum += arr[rt++];
-    else if (sum > m) {
+  for (let rt = 0; rt < arr.length; rt++) {
+    sum += arr[rt];
+    if (sum === m) answer++;
+    while (sum >= m) {
       sum -= arr[lt++];
-    }
-    if (sum === m) {
-      answer++;
-      sum -= arr[lt++];
+      if (sum === m) answer++;
     }
   }
 
@@ -51,4 +48,4 @@ const solution2 = (m, arr) => {
 
 console.log(solution2(6, [1, 2, 1, 3, 1, 1, 1, 2]));
 
-// 0322 강의 수강 중
+// 0325 done.
