@@ -1,28 +1,45 @@
+// Hash 인 이유..?
 const solution = (str) => {
   let answer = 0;
-  let a = 0;
-  let b = 0;
-  let c = 0;
+  let a = {
+    upper: "A",
+    cnt: 0,
+  };
+  let b = {
+    upper: "B",
+    cnt: 0,
+  };
+  let c = {
+    upper: "C",
+    cnt: 0,
+  };
+  let max = a;
 
   for (let i = 0; i < str.length; i++) {
-    switch (i) {
+    switch (str[i]) {
       case "A":
-        a++;
+        a.cnt++;
         break;
       case "B":
-        b++;
+        b.cnt++;
         break;
       case "C":
-        c++;
+        c.cnt++;
         break;
       default:
-        return;
+        "";
     }
   }
 
-  return a;
+  if (a.cnt < b.cnt) {
+    max = b;
+  } else if (max.cnt < c.cnt) {
+    max = c;
+  }
+
+  return max.upper;
 };
 
 console.log(solution("BACBACCACCBDEDE"));
 
-// 0325 doing
+// 0328 done.
