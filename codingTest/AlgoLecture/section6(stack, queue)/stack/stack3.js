@@ -6,8 +6,12 @@ const solution = (board, moves) => {
     for (let i = 0; i < board.length; i++) {
       if (board[i][x - 1] !== 0) {
         stack.push(board[i][x - 1]);
+        if (stack[stack.length - 1] === stack[stack.length - 2]) {
+          stack.pop();
+          stack.pop();
+          answer += 2;
+        }
         board[i][x - 1] = 0;
-        console.log(board, stack);
         break;
       }
     }
@@ -23,8 +27,9 @@ const a = [
   [4, 2, 4, 4, 2],
   [3, 5, 1, 3, 1],
 ];
+
 const b = [1, 5, 3, 5, 1, 2, 1, 4];
 
 console.log(solution(a, b));
 
-// 0401 doing
+// 0401 done.
