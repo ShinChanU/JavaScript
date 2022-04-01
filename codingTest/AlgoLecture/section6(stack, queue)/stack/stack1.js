@@ -15,5 +15,8 @@ const solution = (str) => {
 };
 
 console.log(solution("(()(()))(()"));
+console.log(solution("(())())"));
+console.log(solution("(())()"));
 
 // 0331 done.
+// 0401 강의 보고 수정.
