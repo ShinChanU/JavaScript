@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here.</title>
+    <!-- 공통 CSS -->
+    <!-- <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://211.63.89.130/html_prj/common/css/main_20220321.css"
+    /> -->
+    <style type="text/css">
+      table {
+        margin: 0px auto;
+      }
+    </style>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <form name="frm">
+      <table>
+        <tr>
+          <td colspan="2" style="text-align: center"><h1>로그인</h1></td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="text"
+              name="id"
+              id="id"
+              class="inputBox"
+              placeholder="아이디"
+              tabindex="1"
+              onKeyDown="if(event.keyCode == 13) loginChk()"
+              style="
+                width: 300px;
+                height: 40px;
+                font-size: 24px;
+                text-align: center;
+                font-weight: bold;
+              "
+            />
+          </td>
+          <td rowspan="2">
+            <input
+              type="button"
+              id="btn"
+              class="btn"
+              value="로그인"
+              tabindex="3"
+              onclick="loginChk()"
+              style="
+                height: 86px;
+                width: 100px;
+                font-size: 22px;
+                font-weight: bold;
+              "
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="password"
+              name="passwd"
+              id="passwd"
+              class="inputBox"
+              placeholder="비밀번호"
+              tabindex="2"
+              onKeyDown="if(event.keyCode == 13) loginChk()"
+              style="
+                width: 300px;
+                height: 40px;
+                font-size: 24px;
+                text-align: center;
+                font-weight: bold;
+              "
+            />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <script type="text/javascript">
+      function loginChk() {
+        var form = document.frm;
+        if (!form.id.value) {
+          alert("아이디를 입력해주세요.");
+          form.id.focus();
+          return false;
+        } //end if
+        else if (!form.passwd.value) {
+          alert("비밀번호를 입력해주세요");
+          form.passwd.value;
+          return false;
+        } else window.open("https://www.daum.net/");
+      } //end loginChk
+    </script>
+  </body>
+</html>
