@@ -1,8 +1,11 @@
-const solution = (str) => {
+const solution = (s) => {
+  let answer;
   let stack = [];
 
-  for (let x of str) {
-    if (x.match(/[1-9]/g) !== null) {
+  for (let x of s) {
+    // if (x.match(/[1-9]/g) !== null) {
+    if (!isNaN(x)) {
+      // 숫자인지?!
       stack.push(parseInt(x));
     } else {
       let b = stack.pop();
@@ -28,7 +31,9 @@ const solution = (str) => {
     }
   }
 
-  return stack[0];
+  [answer] = stack;
+
+  return answer;
 };
 
 console.log(solution("352+*9-"));
