@@ -29,19 +29,20 @@ console.log(
 // 0413 study
 
 const solution2 = (arr) => {
-  let answer = 0;
+  let answer = Number.MIN_SAFE_INTEGER;
   let cnt = 0;
-
   let tmp = [];
+
   for (let x of arr) {
-    tmp.push([x[1], "e"]);
     tmp.push([x[0], "s"]);
+    tmp.push([x[1], "e"]);
   }
 
   tmp.sort((a, b) => {
     if (a[0] === b[0]) return a[1].charCodeAt() - b[1].charCodeAt();
     else return a[0] - b[0];
   });
+  console.log(tmp);
 
   for (let i = 0; i < tmp.length; i++) {
     if (tmp[i][1] === "e") cnt--;
@@ -56,12 +57,11 @@ const solution2 = (arr) => {
 
 console.log(
   solution2([
-    [14, 18],
-    [12, 15],
-    [15, 20],
-    [20, 30],
-    [5, 14],
+    [1, 3],
+    [4, 8],
+    [5, 9],
+    [6, 10],
   ])
 );
 
-// 0416 lecture 들어야함
+// 0416 lecture.
