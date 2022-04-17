@@ -37,3 +37,5 @@ const solution = (m, arr) => {
 
 console.log(solution(3, [1, 2, 8, 4, 9]));
 // 0416 study, lecture PERFECT !!!
+
+// 어려움, 정리 필요 !
