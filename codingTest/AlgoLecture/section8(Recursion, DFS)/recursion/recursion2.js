@@ -31,3 +31,5 @@ const solution2 = (n) => {
 };
 
 console.log(solution2(11));
+
+// 0417 lecture
