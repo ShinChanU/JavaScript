@@ -46,3 +46,4 @@ const solution = (n, f) => {
 console.log(solution(4, 16));
 
 // 0422, 순열 + 조합 + 메모지에이션
+// study, lecture
