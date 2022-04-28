@@ -3,15 +3,14 @@ const solution = (m, arr) => {
   let dy = Array.from({ length: m + 1 }, () => 0);
 
   for (let i = 0; i < arr.length; i++) {
-    for (let j = arr[i][1]; j <= m; j++) {
-      if()
-      dy[j] = arr[i][0];
-      if()
-      console.log(dy);
+    let score = arr[i][0];
+    let time = arr[i][1];
+    for (let j = m; j >= time; j--) {
+      dy[j] = Math.max(dy[j], dy[j - time] + score);
     }
   }
 
-  console.log(dy);
+  answer = dy[m];
 
   return answer;
 };
@@ -26,4 +25,4 @@ console.log(
   ])
 );
 
-// doing 0427 
+// doing 0427
