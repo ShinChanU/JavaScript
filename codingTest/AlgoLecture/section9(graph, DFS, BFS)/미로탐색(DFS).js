@@ -77,7 +77,7 @@ const solution2 = (arr) => {
   };
 
   arr[0][0] = 1;
-  DFS(0, 0);
+  // DFS(0, 0);
 
   return answer;
 };
