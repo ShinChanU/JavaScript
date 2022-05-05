@@ -14,6 +14,7 @@ const solution = (n, times) => {
     times.map((e) => {
       cnt += parseInt(mid / e);
     });
+    // reduce 사용 가능
     return cnt;
   };
 
@@ -35,3 +36,7 @@ const solution = (n, times) => {
 console.log(solution(6, [7, 10]));
 console.log(solution(50, [7, 10, 5, 2, 3, 4]));
 // 0504 pass, 상식적으로 생각해라
+
+var min = 0,
+  max = n * Math.max.apply(null, times);
+// 의미한번 보기
