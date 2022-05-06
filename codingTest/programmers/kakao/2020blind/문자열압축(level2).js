@@ -1,32 +1,36 @@
 const solution = (s) => {
   let answer = Number.MAX_SAFE_INTEGER;
   let n = s.length;
-  let str = "";
 
-  for (let i = 1; i <= n / 2; i++) {
-    let j = 0;
-    let cnt = 0;
-    let len = 0;
+  for (let i = 1; i <= Math.ceil(n / 2); i++) {
+    let result = "";
+    let cnt = 1;
+    let str = s.substr(0, i);
+    let j = i;
+    result += str;
     while (j < n) {
       let tmp = s.substr(j, i);
       if (tmp.length !== i) {
-        len += tmp.length;
+        result += tmp;
       } else if (str === tmp) {
         cnt++;
       } else {
-        if (cnt > 0) {
-          len++;
-          cnt = 0;
+        if (cnt > 1) {
+          result += `${cnt}`;
+          result += tmp;
+          cnt = 1;
+        } else {
+          result += tmp;
         }
         str = tmp;
-        len += i;
       }
       j += i;
     }
-    if (cnt > 0) {
-      len++;
+    if (cnt > 1) {
+      result += `${cnt}`;
     }
-    answer = Math.min(answer, len);
+
+    answer = Math.min(answer, result.length);
   }
 
   return answer;
@@ -37,3 +41,5 @@ console.log(solution("ababcdcdababcdcd"));
 console.log(solution("abcabcdede"));
 console.log(solution("abcabcabcabcdededededede"));
 console.log(solution("xababcdcdababcdcd"));
+console.log(solution("a"));
+// 0506 pass
