@@ -1,5 +1,13 @@
-let fs = require("fs");
-let input = fs.readFileSync("/dev/stdin").toString().split(" ");
-let a = parseInt(input[0]);
-let b = parseInt(input[1]);
-console.log(a + b);
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.on("line", function (line) {
+  console.log(line);
+  rl.close();
+}).on("close", function () {
+  process.exit();
+});
