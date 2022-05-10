@@ -86,6 +86,8 @@ function solution2(begin, target, words) {
   }
 }
 
+retuerndfasd
+
 console.log(
   solution2("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"])
 );
