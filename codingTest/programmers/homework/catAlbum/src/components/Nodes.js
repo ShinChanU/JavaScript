@@ -1,8 +1,8 @@
-function Nodes({ $app, initialState, onClick }) {
+function Nodes({ $app, initialState, onClick, onBackClick }) {
   // 렌더링할 데이터 컴포넌트
   this.state = initialState;
-  const { nodes } = this.state;
   this.onClick = onClick;
+  this.onBackClick = onBackClick;
 
   // Nodes 컴포넌트를 렌더링할 DOM 생성(ul 태그)
   this.$target = document.createElement("div");
@@ -16,9 +16,9 @@ function Nodes({ $app, initialState, onClick }) {
   };
 
   this.render = () => {
-    if (nodes) {
+    if (this.state.nodes) {
       // <div Nodes><img path><div>name</div></div>
-      const nodeTemplate = nodes
+      const nodeTemplate = this.state.nodes
         .map((node) => {
           const nodePath =
             node.type === "DIRECTORY"
@@ -34,26 +34,31 @@ function Nodes({ $app, initialState, onClick }) {
         })
         .join("");
 
-      this.$target.innerHTML = this.state.isRoot
+      this.$target.innerHTML = !this.state.isRoot
         ? `<div class="Node">
       <img src="./assets/prev.png">
       </div>${nodeTemplate}`
         : nodeTemplate;
     }
-
-    this.$target.querySelectorAll(".Node").forEach(($node) => {
-      // console.log($node.getAttribute());
-      $node.addEventListener("click", (e) => {
-        const { nodeId } = e.target.dataset;
-        let selectNode = this.state.nodes.find((node) => node.id === nodeId); // 선택된 노드를 찾는 과정
-        if (selectNode) {
-          this.onClick(selectNode); // node를 넘경줄수있음..
-        }
-      });
-    });
   };
 
   this.render();
+
+  this.$target.addEventListener("click", (e) => {
+    const $node = e.target.closest(".Node");
+
+    if ($node) {
+      const { nodeId } = $node.dataset;
+      if (!nodeId) {
+        this.onBackClick();
+        return;
+      }
+      let selectNode = this.state.nodes.find((node) => node.id === nodeId); // 선택된 노드를 찾는 과정
+      if (selectNode) {
+        this.onClick(selectNode); // node를 넘경줄수있음..
+      }
+    }
+  });
 }
 
 export default Nodes;
