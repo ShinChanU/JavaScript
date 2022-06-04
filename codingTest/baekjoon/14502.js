@@ -15,18 +15,26 @@
 const solution = (n, m, arr) => {
   let answer = 0;
   let flag = [];
+  let array = arr.map((e) => e.slice());
   let dx = [-1, 0, 1, 0];
   let dy = [0, 1, 0, -1];
 
   const searchVirus = (tmpArr) => {
     // 3개의 벽이 세워진 arr 영역 탐색
+    let localArr = tmpArr.map((e) => e.slice());
+    console.log("시작");
+    console.log(localArr[0]);
+    console.log(localArr[1]);
+    console.log(localArr[2]);
+    console.log(localArr[3]);
+    console.log("끝");
     let queue = [];
     let cnt = 0;
 
     for (let i = 0; i < n; i++) {
       for (let j = 0; j < m; j++) {
-        if (tmpArr[i][j] === 0) cnt++;
-        if (tmpArr[i][j] === 2) {
+        if (localArr[i][j] === 0) cnt++;
+        if (localArr[i][j] === 2) {
           queue.push([i, j]);
         }
         while (queue.length) {
@@ -39,16 +47,27 @@ const solution = (n, m, arr) => {
               nx < n &&
               ny >= 0 &&
               ny < m &&
-              tmpArr[nx][ny] === 0
+              localArr[nx][ny] === 0
             ) {
-              tmpArr[nx][ny] = 2;
+              localArr[nx][ny] = 2;
               queue.push([nx, ny]);
             }
           }
         }
       }
     }
+
     console.log(cnt);
+
+    if (answer < cnt) {
+      console.log(answer, cnt);
+      console.log(localArr[0]);
+      console.log(localArr[1]);
+      console.log(localArr[2]);
+      console.log(localArr[3]);
+      console.log("--");
+    }
+    answer = answer < cnt ? cnt : answer;
   };
 
   for (let i = 0; i < n; i++) {
@@ -59,21 +78,21 @@ const solution = (n, m, arr) => {
     }
   }
 
-  for (let i = 0; i < flag.length; i++) {
+  for (let i = 0; i < flag.length - 2; i++) {
     let [ix, iy] = flag[i];
-    arr[ix][iy] = 1;
-    for (let j = i + 1; j < flag.length; j++) {
+    array[ix][iy] = 1;
+    for (let j = i + 1; j < flag.length - 1; j++) {
       let [jx, jy] = flag[j];
-      arr[jx][jy] = 1;
+      array[jx][jy] = 1;
       for (let k = j + 1; k < flag.length; k++) {
         let [kx, ky] = flag[k];
-        arr[kx][ky] = 1;
-        searchVirus(arr);
-        arr[kx][ky] = 0;
+        array[kx][ky] = 1;
+        searchVirus(array);
+        array[kx][ky] = 0;
       }
-      arr[jx][jy] = 0;
+      array[jx][jy] = 0;
     }
-    arr[ix][iy] = 0;
+    array[ix][iy] = 0;
   }
 
   return answer;
@@ -90,4 +109,12 @@ let matrix = [
   [0, 1, 0, 0, 0, 0, 0],
 ];
 
-console.log(solution(7, 7, matrix));
+let matrix2 = [
+  [0, 0, 0, 0, 0, 0],
+  [1, 0, 0, 0, 0, 2],
+  [1, 1, 1, 0, 0, 2],
+  [0, 0, 0, 0, 0, 2],
+];
+
+console.log(solution(4, 6, matrix2));
+// 0531 bfs 시도중
