@@ -11,22 +11,20 @@ let input = fs
 const solution = (input) => {
   let N = +input[0];
   let timeArr = input.slice(1).map((e) => e.split(" ").map((e) => +e));
-  let answer = Number.MIN_SAFE_INTEGER;
+  let answer = 1;
 
-  timeArr.sort((a, b) => a[0] - b[0]);
-  for (let i = 0; i < N; i++) {
-    let cnt = 0;
-    let [prevS, prevE] = timeArr[i];
-    cnt++;
-    for (let j = i + 1; j < N; j++) {
-      let [nextS, nextE] = timeArr[j];
-      if (prevE <= nextS) {
-        prevS = nextS;
-        prevE = nextE;
-        cnt++;
-      } else continue;
+  timeArr.sort((a, b) => {
+    if (a[1] === b[1]) return a[0] - b[0];
+    else return a[1] - b[1];
+  });
+
+  let temp = timeArr[0][1]; // 처음 end
+  for (let i = 1; i < N; i++) {
+    let [start, end] = timeArr[i];
+    if (start >= temp) {
+      temp = end;
+      answer++;
     }
-    answer = Math.max(answer, cnt);
   }
 
   console.log(answer);
