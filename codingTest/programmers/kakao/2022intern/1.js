@@ -36,4 +36,4 @@ const solution = (survey, choices) => {
 
 console.log(solution(["AN", "CF", "MJ", "RT", "NA"], [5, 3, 2, 7, 5]));
 console.log(solution(["TR", "RT", "TR"], [7, 1, 3]));
-// 25분 pass
+// 25분 pass, 실제 코테에서 풀이

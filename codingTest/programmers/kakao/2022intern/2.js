@@ -195,4 +195,4 @@ console.log(solution([1, 2, 1, 2], [1, 10, 1, 2]));
 console.log(solution([1, 1], [1, 5]));
 console.log(solution([1, 3, 2], [2, 3, 5]));
 console.log(solution([1, 3, 2, 2, 3, 4], [2, 3, 5, 5, 6, 3]));
-// 28/30 pass, 2개 실패
+// 28/30 pass, 2개 실패, 실제 코테에서 풀이
