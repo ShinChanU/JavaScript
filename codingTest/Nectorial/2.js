@@ -42,6 +42,6 @@ const solution = (order, source, target) => {
 };
 
 console.log(solution([1, 4, 2, 3, 5], "hkbdi", "kd"));
-// console.log(solution([7, 1, 2, 5, 4, 3, 6], "abbabaa", "bb"));
-// console.log(solution([3, 1, 2, 4, 5], "abcde", "ea"));
-// console.log(solution([1, 2, 3, 4], "abcd", "abcd"));
+console.log(solution([7, 1, 2, 5, 4, 3, 6], "abbabaa", "bb"));
+console.log(solution([3, 1, 2, 4, 5], "abcde", "ea"));
+console.log(solution([1, 2, 3, 4], "abcd", "abcd"));

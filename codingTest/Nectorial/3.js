@@ -46,11 +46,11 @@ const solution = (initPlayers, newPlayers, rank) => {
 };
 
 console.log(solution([1, 1, 3], [2, 2, 4], 2));
-console.log(solution([1, 2, 3], [6, 5, 4], 1));
+console.log(solution([1, 2, 3], [6, 5, 4], 1)); // 3 +  6 + 5 + 4
 console.log(
   solution([10, 10, 10, 5, 4, 3, 2, 1, 1, 1], [6, 7, 1, 5, 3, 1, 9, 1, 4, 5], 5)
 );
-// console.log(solution([100, 100, 99, 97], [25, 16, 25, 100, 50], 3));
+console.log(solution([100, 100, 99, 97], [25, 16, 25, 100, 50], 3)); //
 // console.log(
 //   solution(
 //     [
