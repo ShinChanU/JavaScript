@@ -1,28 +1,30 @@
 const obj = {
-    "a": "aya",
-    "y": "ye",
-    "w": "woo",
-    "m": "ma"
-}
+  a: "aya",
+  y: "ye",
+  w: "woo",
+  m: "ma",
+};
 
 function solution(babbling) {
-    let answer = 0;
-    
-    for(let str of babbling) {
-        let pt = 0;
-        let tmp = str.slice();
-        let now;
-        while(1) {
-            if(obj[tmp[pt]] !== undefined 
-               && obj[tmp[pt]] === tmp.slice(0, obj[tmp[pt]].length) 
-               && obj[tmp[pt]] !== now) {
-                now = obj[tmp[pt]];
-                tmp = tmp.slice(obj[tmp[pt]].length)
-            } else break;
-        }
-        
-        if(tmp.length === 0) answer++
+  let answer = 0;
+
+  for (let str of babbling) {
+    let tmp = str.slice();
+    let now;
+    while (1) {
+      let strInObj = obj[tmp[0]];
+      if (
+        strInObj !== undefined &&
+        strInObj === tmp.slice(0, strInObj.length) &&
+        strInObj !== now
+      ) {
+        now = strInObj;
+        tmp = tmp.slice(strInObj.length);
+      } else break;
     }
-    
-    return answer;
+
+    if (!tmp.length) answer++;
+  }
+
+  return answer;
 }
